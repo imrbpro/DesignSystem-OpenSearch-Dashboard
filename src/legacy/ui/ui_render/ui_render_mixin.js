@@ -247,6 +247,10 @@ export function uiRenderMixin(osdServer, server, config) {
           light: getLoadingVars(v9light),
           dark: getLoadingVars(v9dark),
         },
+        dsChallengeTheme: {
+          light: getLoadingVars(v9light),
+          dark: getLoadingVars(v9dark),
+        },
       });
 
       /*

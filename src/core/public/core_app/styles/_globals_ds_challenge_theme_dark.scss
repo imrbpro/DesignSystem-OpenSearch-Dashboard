@@ -1,0 +1,7 @@
+// dsChallengeThemedark global scope
+
+@import "@elastic/eui/src/themes/v9/v9_colors_dark";
+@import "@elastic/eui/src/themes/v9/v9_globals";
+@import "./mixins";
+@import "./ds_challenge_theme/ds_challenge_tokens";
+@import "./ds_challenge_theme/ds_challenge_overrides";

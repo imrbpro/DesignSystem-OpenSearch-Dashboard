@@ -1,0 +1,62 @@
+// My soft UI concept for this design system.
+
+body {
+  background: var(--ds-bg);
+  color: var(--ds-text);
+}
+
+.euiPanel,
+.euiPopover__panel,
+.euiFlyout,
+.euiHeader,
+.euiCollapsibleNav,
+.euiContextMenuPanel {
+  background: var(--ds-surface);
+  border-radius: var(--ds-radius-l);
+  box-shadow: var(--ds-shadow-1);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.euiButton,
+.euiButtonEmpty,
+.euiButtonIcon {
+  border-radius: var(--ds-radius-m);
+}
+
+.euiButton:not([disabled]),
+.euiButtonIcon:not([disabled]),
+.euiButtonEmpty:not([disabled]) {
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.euiButton:not([disabled]):hover,
+.euiButtonIcon:not([disabled]):hover {
+  transform: translateY(-1px);
+  box-shadow: var(--ds-shadow-2);
+}
+
+.euiButton:focus,
+.euiButtonIcon:focus,
+.euiFieldText:focus,
+.euiFieldSearch:focus,
+.euiSelect:focus {
+  outline: none !important;
+  box-shadow: var(--ds-focus) !important;
+}
+
+.euiFieldText,
+.euiFieldSearch,
+.euiSelect,
+.euiSuperSelectControl {
+  background: var(--ds-surface-2);
+  border-radius: var(--ds-radius-m);
+  box-shadow: inset 6px 6px 12px rgba(0,0,0,0.08), inset -6px -6px 12px rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+[data-theme-tag="dsChallengeThemedark"] .euiFieldText,
+[data-theme-tag="dsChallengeThemedark"] .euiFieldSearch,
+[data-theme-tag="dsChallengeThemedark"] .euiSelect,
+[data-theme-tag="dsChallengeThemedark"] .euiSuperSelectControl {
+  box-shadow: inset 6px 6px 14px rgba(0,0,0,0.55), inset -6px -6px 14px rgba(255,255,255,0.04);
+}

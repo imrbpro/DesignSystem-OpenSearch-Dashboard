@@ -1,0 +1,15 @@
+//based on v9 
+@import "../../../node_modules/@elastic/eui/src/themes/v9/v9_colors_dark";
+@import "../../../node_modules/@elastic/eui/src/global_styling/functions/index";
+@import "../../../node_modules/@elastic/eui/src/global_styling/variables/index";
+@import "../../../node_modules/@elastic/eui/src/global_styling/mixins/index";
+
+//configurations
+@import "global_styling/variables/index";
+
+//core
+@import "global_styling/mixins/index";
+@import "global_styling/reset/index";
+
+//components
+@import "components/index";

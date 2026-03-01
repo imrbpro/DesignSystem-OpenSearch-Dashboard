@@ -99,6 +99,8 @@ module.exports = function (grunt) {
       uiFrameworkCompile('src/kui_next_dark.scss', 'dist/kui_next_dark.css'),
       uiFrameworkCompile('src/kui_v9_light.scss', 'dist/kui_v9_light.css'),
       uiFrameworkCompile('src/kui_v9_dark.scss', 'dist/kui_v9_dark.css'),
+      uiFrameworkCompile('src/kui_ds_challenge_light.scss', 'dist/kui_ds_challenge_light.css'),
+      uiFrameworkCompile('src/kui_ds_challenge_dark.scss', 'dist/kui_ds_challenge_dark.css'),
     ]).then(done);
   });
 };
