@@ -24,6 +24,27 @@ import {
   SearchCommandTypes,
 } from '../../global_search';
 
+const RECENT_QUERIES_KEY = 'osd.dsChallenge.recentQueries';
+const MAX_RECENTS = 7;
+
+function loadRecentQueries(storage: Storage): string[] {
+  try {
+    const raw = storage.getItem(RECENT_QUERIES_KEY);
+    const list = raw ? (JSON.parse(raw) as string[]) : [];
+    return Array.isArray(list) ? list.filter(Boolean).slice(0, MAX_RECENTS) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveRecentQuery(storage: Storage, q: string) {
+  const query = q.trim();
+  if (!query) return;
+  const list = loadRecentQueries(storage).filter((x) => x !== query);
+  list.unshift(query);
+  storage.setItem(RECENT_QUERIES_KEY, JSON.stringify(list.slice(0, MAX_RECENTS)));
+}
+
 interface Props {
   globalSearchCommands: GlobalSearchCommand[];
   panel?: boolean;
@@ -92,7 +113,6 @@ export const HeaderSearchBar = ({ globalSearchCommands, panel, onSearchResultCli
   const ongoingAbortControllersRef = useRef<Array<{ controller: AbortController; query: string }>>(
     []
   );
-
   const closePopover = () => {
     setIsPopoverOpen(false);
     setResults([]);
@@ -129,7 +149,29 @@ export const HeaderSearchBar = ({ globalSearchCommands, panel, onSearchResultCli
       </EuiFlexGroup>
     );
   };
+  const recentQueries = loadRecentQueries(window.localStorage);
 
+  const recentSection =
+    searchValue.trim() === '' && recentQueries.length ? (
+      <EuiPanel paddingSize="s" className="dsSearchRecents">
+        <EuiTitle size="xxs">
+          <h3>Recent</h3>
+        </EuiTitle>
+        <EuiListGroup flush>
+          {recentQueries.map((q) => (
+            <EuiListGroupItem
+              key={q}
+              label={q}
+              iconType="clock"
+              onClick={() => {
+                setSearchValue(q);
+                onSearch(q);
+              }}
+            />
+          ))}
+        </EuiListGroup>
+      </EuiPanel>
+    ) : null;
   const searchResultSections = (
     <>
       {results && results.length ? (
@@ -150,6 +192,7 @@ export const HeaderSearchBar = ({ globalSearchCommands, panel, onSearchResultCli
 
   const onSearch = useCallback(
     async (value: string) => {
+      saveRecentQuery(window.localStorage, value);
       const abortController = new AbortController();
       ongoingAbortControllersRef.current.push({ controller: abortController, query: value });
       if (enterKeyDownRef.current) {
@@ -291,6 +334,7 @@ export const HeaderSearchBar = ({ globalSearchCommands, panel, onSearchResultCli
     >
       <EuiFlexGroup direction="column" gutterSize="s">
         <EuiFlexItem>{searchBar}</EuiFlexItem>
+        <EuiFlexItem>{recentSection}</EuiFlexItem>
         <EuiFlexItem>{searchResultSections}</EuiFlexItem>
       </EuiFlexGroup>
     </EuiPanel>
