@@ -5,15 +5,8 @@ body {
   color: var(--ds-text);
 }
 
-.euiPanel.euiPanel--plain {
-  background-color: var(--ds-surface) !important; 
-  border-radius: var(--ds-radius-l) !important; 
-  padding: var(--ds-space-3) !important; 
-  box-shadow: var(--ds-shadow-3) !important; 
-}
-
 .euiComboBox.euiComboBox--compressed .euiComboBox__inputWrap.euiComboBox__inputWrap-isClearable {
-  border-radius: var(--ds-radius-l) !important; 
+  border-radius: var(--ds-radius-l) !important;
 }
 
 .euiPanel,
@@ -28,10 +21,82 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
+/* Plain panels/cards used across dashboards */
+.euiPanel.euiPanel--plain {
+  background-color: var(--ds-surface);
+  border-radius: var(--ds-radius-l);
+  padding: var(--ds-space-3);
+  box-shadow: var(--ds-shadow-3);
+}
+
+/* Cards pick up the soft tile styling */
+.euiCard {
+  background: var(--ds-surface);
+  border-radius: var(--ds-radius-l);
+  box-shadow: var(--ds-shadow-1);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.euiCard:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--ds-shadow-2);
+}
+
+/* Header chrome + header buttons */
+.euiHeader {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.euiHeaderSectionItemButton {
+  border-radius: var(--ds-radius-m);
+  transition: background 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+}
+
+.euiHeaderSectionItemButton:hover,
+.euiHeaderSectionItemButton:focus {
+  background: var(--ds-surface-2);
+  box-shadow: var(--ds-shadow-2);
+  transform: translateY(-1px);
+}
+
+/* Sidebar / collapsible navigation */
+.euiCollapsibleNav {
+  padding: var(--ds-space-3);
+}
+
+.euiCollapsibleNav .euiListGroupItem {
+  border-radius: var(--ds-radius-m);
+  padding: 6px 12px;
+}
+
+.euiCollapsibleNav .euiListGroupItem:hover {
+  background: var(--ds-surface-2);
+  box-shadow: var(--ds-shadow-1);
+}
+
+.euiCollapsibleNav .euiListGroupItem-isActive {
+  background: var(--ds-surface-2);
+  box-shadow: var(--ds-shadow-2);
+  border-left: 3px solid var(--ds-brand);
+}
+
 .euiButton,
 .euiButtonEmpty,
 .euiButtonIcon {
   border-radius: var(--ds-radius-m);
+}
+
+/* Primary CTA buttons pick up brand color */
+.euiButton--primary {
+  background-color: var(--ds-brand);
+  border-color: transparent;
+  color: #fff;
+}
+
+.euiButton--primary[disabled] {
+  opacity: 0.6;
+  box-shadow: none;
 }
 
 .euiButton:not([disabled]),
@@ -58,16 +123,25 @@ body {
 .euiFieldText,
 .euiFieldSearch,
 .euiSelect,
-.euiSuperSelectControl {
+.euiSuperSelectControl,
+.euiTextArea {
   background: var(--ds-surface-2);
   border-radius: var(--ds-radius-m);
-  box-shadow: inset 6px 6px 12px rgba(0,0,0,0.08), inset -6px -6px 12px rgba(255,255,255,0.45);
-  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.08),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.euiComboBox__inputWrap,
+.euiComboBox__input {
+  background: var(--ds-surface-2);
+  border-radius: var(--ds-radius-m);
 }
 
 [data-theme-tag="ds_challenge_themedark"] .euiFieldText,
 [data-theme-tag="ds_challenge_themedark"] .euiFieldSearch,
 [data-theme-tag="ds_challenge_themedark"] .euiSelect,
 [data-theme-tag="ds_challenge_themedark"] .euiSuperSelectControl {
-  box-shadow: inset 6px 6px 14px rgba(0,0,0,0.55), inset -6px -6px 14px rgba(255,255,255,0.04);
+  box-shadow: inset 6px 6px 14px rgba(0, 0, 0, 0.55),
+    inset -6px -6px 14px rgba(255, 255, 255, 0.04);
 }
