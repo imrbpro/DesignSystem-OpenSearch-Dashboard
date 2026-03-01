@@ -26,12 +26,13 @@
   --ds-shadow-lo: rgba(10, 20, 40, 0.18);
   --ds-shadow-1: 10px 10px 20px var(--ds-shadow-lo), -10px -10px 20px var(--ds-shadow-hi);
   --ds-shadow-2: 6px 6px 12px rgba(10, 20, 40, 0.14), -6px -6px 12px rgba(255, 255, 255, 0.70);
+  --ds-shadow-3: 1px 1px 14px gray;
 
   /* focus ring */
   --ds-focus: 0 0 0 3px rgba(37, 99, 235, 0.35);
 }
 
-[data-theme-tag="dsChallengeThemedark"] {
+[data-theme-tag="ds_challenge_themedark"] {
   --ds-bg: #0b1220;
   --ds-surface: #0f1a2e;
   --ds-surface-2: #0c1628;

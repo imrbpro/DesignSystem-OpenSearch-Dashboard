@@ -39,6 +39,7 @@ var resolvedThemeVersion = themeVersionValueMap[rawThemeVersion];
 var themeVersion = themeSources[resolvedThemeVersion] ? resolvedThemeVersion : '{{defaultThemeVersion}}';
 
 window.__osdThemeTag__ = themeVersion + darkMode;
+document.documentElement.setAttribute('data-theme-tag', window.__osdThemeTag__);
 
 var themeDefinition = themeSources[themeVersion][darkMode];
 

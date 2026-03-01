@@ -14,8 +14,8 @@ export type ThemeTag =
   | 'v8dark'
   | 'v9light'
   | 'v9dark'
-  | 'dsChallengeThemelight'
-  | 'dsChallengeThemedark';
+  | 'ds_challenge_theme_light'
+  | 'ds_challenge_theme_dark';
 export type ThemeTags = readonly ThemeTag[];
 
 /**

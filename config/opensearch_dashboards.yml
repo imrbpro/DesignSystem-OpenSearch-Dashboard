@@ -243,18 +243,18 @@
 #  'ff00::/8',
 # ]
 
-# opensearchDashboards.branding:
-#   logo:
-#     defaultUrl: ""
-#     darkModeUrl: ""
-#   mark:
-#     defaultUrl: ""
-#     darkModeUrl: ""
-#   loadingLogo:
-#     defaultUrl: ""
-#     darkModeUrl: ""
-#   faviconUrl: ""
-#   applicationTitle: ""
+ opensearchDashboards.branding:
+   logo:
+     defaultUrl: "https://arancia.ca/wp-content/uploads/2024/11/Untitled-design-1.png"
+     darkModeUrl: "https://arancia.ca/wp-content/uploads/2024/04/12-2-scaled-160x25.png"
+   mark:
+     defaultUrl: "https://arancia.ca/wp-content/uploads/2024/11/Untitled-design-1.png"
+     darkModeUrl: "https://arancia.ca/wp-content/uploads/2024/04/12-2-scaled-160x25.png"
+   loadingLogo:
+     defaultUrl: "https://arancia.ca/wp-content/uploads/2024/11/Untitled-design-1.png"
+     darkModeUrl: "https://arancia.ca/wp-content/uploads/2024/04/12-2-scaled-160x25.png"
+   faviconUrl: "https://arancia.ca/wp-content/uploads/2024/04/12-2-scaled-160x25.png"
+   applicationTitle: "Arancia Design Challenge"
 #   useExpandedHeader: false
 
 # Set the value of this setting to true to capture region denied warnings and errors
