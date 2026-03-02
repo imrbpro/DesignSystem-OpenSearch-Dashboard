@@ -68,7 +68,18 @@ When the server is up and ready, the console will display:
 
 ```bash
 [info][listening] Server running at http://localhost:5603/pgt
+
 [info][server][OpenSearchDashboards][http] http server running at http://localhost:5603/pgt
 ```
 
 Click on the link and dashboard will open on browser
+
+
+Following are the screenshots
+### Dark Theme 
+<img width="1920" height="957" alt="image" src="https://github.com/user-attachments/assets/6c42528c-527d-4899-b410-581d67cf2bba" />
+
+### Light Theme
+<img width="1920" height="946" alt="image" src="https://github.com/user-attachments/assets/55520ca9-3e59-43f9-a253-3d30726dc6a8" />
+
+
