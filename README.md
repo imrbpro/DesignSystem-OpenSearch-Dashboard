@@ -1,56 +1,74 @@
-<img src="https://raw.githubusercontent.com/opensearch-project/project-website/refs/heads/main/assets/brand/SVG/Logo/opensearch_dashboards_logo_darkmode.svg" height="64px"/>
+## Design Rationale for Design system challenge - Arancia
+In this fork from opensearh dashboard, I have implemented the token based design system that follows the standard approach to maintain scalability and consistency across the components. I have created ds_challenge_theme following softUI + Neumorphism design inspiration in which i have covered the following components to meet the requirements. 
 
-- [Welcome!](#welcome)
-- [Project Resources](#project-resources)
-- [Code of Conduct](#code-of-conduct)
-- [License](#license)
-- [Copyright](#copyright)
+1. Buttons
+Introduced rounded borders, Branded styling, Hover impact, Accessible focus state, improved disabled behaviour.
+2. Header
+Improved background visibility, spacing for better experience, refined interaction experience, Typography improvements.
+3. Sidebar Navigation
+Alignment with custom generic theme, Improved active state with neumorphic styled impact, visual hierarchy improvements.
+4. Cards
+Neumorphic + soft radius and elevations, soft hover lift, spacing for the content, improved visual structure modern and fancy looks, Typography improvements.
+5. Form Inputs
+Shared input styling, Clear focus, consistent sizing and spacing, Fonts and Typography improvements.
 
-## Welcome
+## Custom Branding
+Did custom branding as well with Arancia name and Logo to enhance the customization for branding.
 
-OpenSearch Dashboards is an open-source data visualization tool designed to work with OpenSearch. OpenSearch Dashboards gives you data visualization tools to improve and automate business intelligence and support data-driven decision-making and strategic planning.
+## Additional User Experience Enhancements.
+1. Global Search enhancement. Introduced recent search functionality to store recent search queries in LocalStorage for optimised and quick reusablity. Recent searches are stored in a limited scope inside the localstorage for quick access of recent searched item or query.
 
-We aim to be an exceptional community-driven platform and to foster open participation and collective contribution with all contributors. Stay up to date on what's happening with the OpenSearch Project by tracking GitHub [issues](https://github.com/opensearch-project/OpenSearch-Dashboards/issues) and [pull requests](https://github.com/opensearch-project/OpenSearch-Dashboards/pulls). 
+2. Implemented Search in sidebar for searching the Application like dashboard keeping in mind the complex hierarchy that bulks the sidebar with lots of recently viewed apps.
+ 
+All changes are scoped to the specific relevent component. standards implementation of all changes no breaking of any of the state or functionality. 
 
-You can [contribute to this project](https://github.com/opensearch-project/OpenSearch-Dashboards/issues/CONTRIBUTING.md) by [opening issues](https://github.com/opensearch-project/OpenSearch-Dashboards/issues/new/choose) to give feedback, share ideas, identify bugs, and contribute code.
+# Setup and Build Instructions
 
-Set up your [OpenSearch Dashboards development environment](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/DEVELOPER_GUIDE.md#getting-started-guide) today! The project team looks forward to your contributions.
+## 1. Clone this Branch
+Clone the repository and navigate into the project directory:
 
-## Code Summary
+```bash
+git clone -b design-system-challenge-task [https://github.com/imrbpro/DesignSystem-OpenSearch-Dashboard.git](https://github.com/imrbpro/DesignSystem-OpenSearch-Dashboard.git)
+cd DesignSystem-OpenSearch-Dashboard
+```
 
-[![Build and Test][build-and-test-badge]][build-and-test-link]
-[![Unit Test Code Coverage][codecov-badge]][codecov-link]
-[![Link Checker][link-checker-badge]][link-checker-link]
+## 2. Install Yarn and Dependencies
+OpenSearch Dashboards is set up using Yarn. To ensure you have the correct version, use corepack:
+```bash
+# Update corepack to the latest version
+npm i -g corepack
 
-## Project Resources
+# Install the correct version of yarn
+corepack install
 
-* [Project Website](https://opensearch.org/)
-* [Downloads](https://opensearch.org/downloads.html)
-* [Documentation](https://opensearch.org/docs/)
-* Need help? See the [communication guide](COMMUNICATIONS.md) for various options
-* [Project Principles](https://opensearch.org/#principles)
-* [Developer Guide](DEVELOPER_GUIDE.md)
-* [Contributing to OpenSearch](CONTRIBUTING.md)
-* [Maintainer Responsibilities](MAINTAINERS.md)
-* [Release Management](RELEASING.md)
-* [Testing](TESTING.md)
-* [Security](SECURITY.md)
+# Bootstrap the project dependencies
+yarn osd bootstrap
+```
 
-## Code of Conduct
+### Run OpenSearch
+OpenSearch Dashboards requires a running version of OpenSearch to connect to. You can choose to run OpenSearch locally yourself or point to an existing cluster.
 
-This project has adopted the [Amazon Open Source Code of Conduct](CODE_OF_CONDUCT.md). For more information see the [Code of Conduct FAQ](https://aws.github.io/code-of-conduct-faq), or contact [opensource-codeofconduct@amazon.com](mailto:opensource-codeofconduct@amazon.com) with any additional questions or comments.
+### Run a local OpenSearch cluster
+In a separate terminal, you can run the latest snapshot.
 
-## License
+Note: This works for Linux, Windows, and macOS (Darwin). For other systems, use Docker or a tarball.
 
-This project is licensed under the [Apache v2.0 License](LICENSE.txt).
+```bash
+yarn opensearch snapshot
+```
 
-## Copyright
+### Start OpenSearch Dashboards
+Launch the development server:
 
-Copyright OpenSearch Contributors. See [NOTICE](NOTICE.txt) for details.
+```bash
+yarn start
+```
 
-[build-and-test-badge]: https://github.com/opensearch-project/OpenSearch-Dashboards/actions/workflows/build_and_test_workflow.yml/badge.svg
-[build-and-test-link]: https://github.com/opensearch-project/OpenSearch-Dashboards/actions/workflows/build_and_test_workflow.yml
-[codecov-badge]: https://codecov.io/gh/opensearch-project/OpenSearch-Dashboards/branch/main/graphs/badge.svg
-[codecov-link]: https://app.codecov.io/gh/opensearch-project/OpenSearch-Dashboards
-[link-checker-badge]: https://github.com/opensearch-project/OpenSearch-Dashboards/actions/workflows/links_checker.yml/badge.svg
-[link-checker-link]: https://github.com/opensearch-project/OpenSearch-Dashboards/actions/workflows/links_checker.yml
+When the server is up and ready, the console will display:
+
+```bash
+[info][listening] Server running at http://localhost:5603/pgt
+[info][server][OpenSearchDashboards][http] http server running at http://localhost:5603/pgt
+```
+
+Click on the link and dashboard will open on browser
